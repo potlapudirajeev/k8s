@@ -1,0 +1,2 @@
+watch kubectl get nodes
+watch kubectl get pods
