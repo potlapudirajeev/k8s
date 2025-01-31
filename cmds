@@ -1,5 +1,4 @@
-watch kubectl get nodes
-watch kubectl get pods
+
 
 
 Certification Tip!
