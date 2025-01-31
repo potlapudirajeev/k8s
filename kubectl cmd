@@ -1,0 +1,3 @@
+watch kubectl get nodes
+watch kubectl get pods
+kubectl run redis -l tier=db --image=redis:alpine
