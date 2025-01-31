@@ -1,3 +1,5 @@
 watch kubectl get nodes
 watch kubectl get pods
 kubectl run redis -l tier=db --image=redis:alpine
+kubectl expose pod redis --port=6379 --name redis-service
+kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -oyaml > redis1-pod3.yml
