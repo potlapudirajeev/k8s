@@ -11,3 +11,27 @@ kubectl create deployment redis-deploy --image=redis --namespace=dev-ns --replic
 Create a pod called httpd using the image httpd:alpine in the default namespace. Next, create a service of type ClusterIP by the same name (httpd). The target port for the service should be 80.
 kubectl run httpd --image=httpd:alpine --port=80 --expose
 kubectl get pods --namespace kube-system
+
+below 16 line will create yaml file
+cat > load-limited.yaml <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: load-limited
+spec:
+  containers:
+  - name: cpu-load-limited
+    image: vish/stress
+    args:
+    - -cpus
+    - "2"
+    resources:
+      limits:
+        cpu: "0.5"
+      requests:
+        cpu: "0.5"
+EOF
+
+
+watch kubectl top pods
+
